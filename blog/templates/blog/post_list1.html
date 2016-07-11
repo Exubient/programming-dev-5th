@@ -15,7 +15,6 @@
   </head>
 
   <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
           <a class="navbar-brand" href="#">Welcome to my Webpage</a>
     </nav>
@@ -26,6 +25,7 @@
         <h1>Hyun Joong Kim</h1>
         <img src="{% static 'blog/1.jpg' %}"  alt="Hyun Joong Kim" class="img-thumbnail"  style="width:230px; float:left; margin:50px;" >
 
+
         <br><br><br><br><br>
         <div>
         <h3 style="left-margin:50px">취미</h3>
@@ -33,6 +33,7 @@
             <li>농구</li>
             <li>락밴드</li>
             <li>오버워치</li>
+            <li> <a href="{% url 'post_list' %}">피로그래밍</a></li>
          </div>
          </ul>
         <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/hyunjoong.kim.18847" role="button"target="_blank">Go to Facebook&raquo;</a></p>
@@ -56,7 +57,7 @@
           <p><a class="btn btn-default" href="http://www.sghs.kr/index/intro.do" role="button" target="_blank">View details &raquo;</a></p>
         <br><br>
           <h2>한양대학교  재학중</h2>
-            <li>정보시스템학과 재학</li>
+            <li>정보시스템학과 재학</li><br>
           <p><a class="btn btn-default" href="http://www.hanyang.ac.kr/code_html/H3HADE/" role="button" target="_blank">View details &raquo;</a></p>
         </ul>
        </div>

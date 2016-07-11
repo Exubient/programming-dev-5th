@@ -21,4 +21,5 @@ from blog import views
 urlpatterns = [
       url(r'^admin/', admin.site.urls),
       url(r'^$', views.post_list),
+      url(r'^post_list$', views.post_list_2, name = "post_list"),
 ]
