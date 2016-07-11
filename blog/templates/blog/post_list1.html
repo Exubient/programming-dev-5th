@@ -1,0 +1,84 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+   <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+          <a class="navbar-brand" href="#">Welcome to my Webpage</a>
+    </nav>
+
+    <div class="jumbotron">
+
+      <div class="container">
+        <h1>Hyun Joong Kim</h1>
+        <img src="{% static 'blog/1.jpg' %}"  alt="Hyun Joong Kim" class="img-thumbnail"  style="width:230px; float:left; margin:50px;" >
+
+        <br><br><br><br><br>
+        <div>
+        <h3 style="left-margin:50px">취미</h3>
+          <ul>
+            <li>농구</li>
+            <li>락밴드</li>
+            <li>오버워치</li>
+         </div>
+         </ul>
+        <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/hyunjoong.kim.18847" role="button"target="_blank">Go to Facebook&raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+       <div class="col-md-4">
+       <ul>
+          <h2>American School of Madrid 졸업</h2>
+            <li>스페인어학과 졸업</li><br>
+          <a class="btn btn-default" href="http://www.asmadrid.org/" role="button" target="_blank">View details &raquo;</a>
+        <br><br>
+
+          <h2>휘문중학교 졸업</h2>
+          <p><a class="btn btn-default" href="http://www.whimoon.ms.kr/index/index.do" role="button" target="_blank">View details &raquo;</a></p>
+        <br><br>
+          <h2>서울국제고등학교 졸업</h2>
+            <li>스페인어학과 졸업</li><br>
+          <p><a class="btn btn-default" href="http://www.sghs.kr/index/intro.do" role="button" target="_blank">View details &raquo;</a></p>
+        <br><br>
+          <h2>한양대학교  재학중</h2>
+            <li>정보시스템학과 재학</li>
+          <p><a class="btn btn-default" href="http://www.hanyang.ac.kr/code_html/H3HADE/" role="button" target="_blank">View details &raquo;</a></p>
+        </ul>
+       </div>
+      </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; 2016 Company, Inc.</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
+
