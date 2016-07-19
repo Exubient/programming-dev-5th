@@ -13,14 +13,11 @@ class user(models.Model):
       age = models.IntegerField(default=8, max_length=3)
       location = models.CharField(max_length=10)
 
-
       def __str__(self):
             return self.name
 
 
 class pokemon(models.Model):
-      user = models.ForeignKey(user, null =True, blank = True)
-
       name = models.CharField(max_length=10)
       attack = models.CharField(max_length=10)
       defense = models.CharField(max_length=10)
@@ -28,4 +25,13 @@ class pokemon(models.Model):
 
       def __str__(self):
             return self.name
+
+class capture(models.Model):
+      user = models.ForeignKey(user, null =True, blank = True)
+      pokemon = models.ForeignKey(pokemon, null =True, blank = True)
+      capture_location= models.CharField(max_length=10)
+
+      def __str__(self):
+            return self.capture_location
+
 
