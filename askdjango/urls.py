@@ -16,10 +16,30 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from blog import views
+from pokemon import views as pokemon_views
 
 
 urlpatterns = [
+      url(r'^$', views.post_list, name="home"),
       url(r'^admin/', admin.site.urls),
-      url(r'^$', views.post_list),
       url(r'^post_list$', views.post_list_2, name = "post_list"),
+
+      url(r'^rank/$', pokemon_views.pokemon_rank, name='rank'),
+
+      url(r'^user/$', pokemon_views.user_list, name='user'),
+      #url(r'^user/(?P<pk>\d+)/$', pokemon_views.user_list_pk, name='trainers_pk'),
+
+      url(r'^location$', pokemon_views.location_list, name='location'),
+      #url(r'^locations/(?P<pk>\d+)/$', pokemon_views.location_list_pk, name='locations_pk'),
+
+      url(r'^pokemon/$', pokemon_views.pokemon_list, name='pokemon'),
+      #url(r'^pokemon/(?P<pk>\d+)/$', pokemon_views.pokemon_list_pk, name='pokemon_pk'),
+
+      url(r'^capture$', pokemon_views.capture_list, name='capture'),
+      #url(r'^capture/(?P<pk>\d+)/$', pokemon_views.capture_list_pk, name='captures_pk'),
+
+      #url(r'^sum/(?P<x>\d+)/(?P<y>\d+)/(?P<z>\d+)/$', views.mysum),
+      #url(r'^sum/(?P<x>\d+)/(?P<y>\d+)/$', views.mysum),
+      #url(r'^sum/(?P<x>\d+)/$', views.mysum),
+      #url(r'^sum2/(?P<x>[\d/]+)/$', views.mysum2),
 ]

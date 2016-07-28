@@ -1,0 +1,31 @@
+import time
+
+cache1={}
+
+def mysum(x,y):
+	key=(x,y)
+	if key not in cache1:
+		time.sleep(1)
+		cache1[key]=x+y
+	return cache1[key]
+
+cache2={}
+
+def mymul(x,y):
+	key=(x,y)
+	if key not in cache2:
+		time.sleep(1)
+		cache2[key]=x*y
+	return cache2[key]
+
+print(mysum(1,2))
+print(mysum(1,2))
+print(mysum(2,3))
+print(mysum(1,2))
+
+
+print(mymul(1,2))
+print(mymul(2,3))
+print(mymul(1,2))
+print(mymul(1,2))
+
