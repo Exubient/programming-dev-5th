@@ -1,13 +1,27 @@
 import re
+from .validators import max, phone_number_validator, post, post_api
 from django.db import models
 
 # Create your models here.
+"""
+class PhoneNumberField(models.CharField):
+      def __init__(self, *args, **kwargs):
+            kwargs.setdault('max_length', 20)
+            kwargs.setdault('validators', [])
+            kwargs['validators'].append(phone_number_validator)
+            super().__init__(*args, **kwargs)
+
+            우체국 key = 5315606e3fe0e7fe31470021512564
+"""
 
 class user(models.Model):
-      name = models.CharField(max_length=50)
+      name = models.CharField(max_length=50, validators=[max(5)])
       town = models.CharField(max_length=10)
       age = models.IntegerField(default=8)
       location = models.CharField(max_length=10)
+      phone = models.CharField(max_length=10, validators=[phone_number_validator()])
+      post_number1 = models.CharField(max_length=10, validators=[post()])
+      post_number2 = models.CharField(max_length=10, validators=[post_api(True)])
 
       def __str__(self):
             return self.name
