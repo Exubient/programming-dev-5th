@@ -21,9 +21,3 @@ def lnglat_validator(lnglat):
       if not re.match(r'^(\d+\.?\d*),(\d+\.?\d*)$', lnglat):
             raise forms.ValidationError('Invalid lnglat Type')
 
-
-def min_length_validator(min_length):
-      def wrap(value):
-            if len(value) < min_length:
-                  raise ValidationError('{}글자이상!'.format(min_length))
-      return wrap

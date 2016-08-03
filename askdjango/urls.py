@@ -17,12 +17,18 @@ from django.conf.urls import url
 from django.contrib import admin
 from blog import views
 from pokemon import views as pokemon_views
+from blog.models  import Comment
 
 
 urlpatterns = [
       url(r'^$', views.post_list, name="home"),
       url(r'^admin/', admin.site.urls),
-      url(r'^post_list$', views.post_list_2, name = "post_list"),
+      url(r'^post_list$', views.p_list, name = "post_list"),
+      url(r'^comment_list$', views.comment_list, name = "comment_list"),
+      url(r'^post_list/detail/$', views.postd_list, name = "post_detail"),
+      url(r'^comments/(?P<pk>[0-9]\d+)/edit/$', views.comment_edit),
+
+      url(r'^comments/new/$', views.comment_new, name="comment"),
 
       url(r'^rank/$', pokemon_views.pokemon_rank, name='rank'),
 

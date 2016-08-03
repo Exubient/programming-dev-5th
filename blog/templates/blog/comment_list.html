@@ -30,7 +30,7 @@ body {
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">P.rogramming Django</a>
+            <a class="navbar-brand" href="http://127.0.0.1:8000/">Back to main</a>
         </div>
     </div>
 </div>
@@ -38,7 +38,20 @@ body {
 <div class="container">
     <div class="jumbotron">
         <h1>P.rogramming</h1>
-        <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
+        <p>CONTENT</p>
+            <li>this are contents of list of comments!</li>
+          <ul>
+        {% for comment in comment_list %}
+            <li>{{comment}}</li>
+        {% endfor %}
+        </ul>
+            <li><a href="{% url 'post_detail' %}">click here to see post detail</a></li>
+            <li><a href="{% url 'comment' %}">click here to comment on posts</a></li>
+
+          </ul>
+
+
+
     </div>
 </div>
 

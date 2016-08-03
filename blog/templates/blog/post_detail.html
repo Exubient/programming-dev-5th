@@ -6,6 +6,11 @@
 <title>P.rogramming Blog</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 <style>
+
+td{
+  border:solid black 1px;
+  text-align:center;
+}
 body {
     padding-top: 60px;
 }
@@ -37,23 +42,24 @@ body {
 
 <div class="container">
     <div class="jumbotron">
-        <h1>P.rogramming</h1>
+        <h1>Post_Detail</h1>
         <p>CONTENT</p>
-          <ul>
-          <li>this is name of list of posts!</li>
-          <ul>
+          <table>
+          <tr>
+          <td>____title____</td>
+          <td>____content____</td>
+          <td>____lnglat____</td>
+          <td>_______created time_______</td>
+          </tr>
         {% for post in post_list%}
-            <li>{{post}}</li>
+            <tr>
+            <td>{{post.title}}</td>
+            <td>{{post.content}}</td>
+            <td>{{post.lnglat}}</td>
+            <td>{{post.created_at}}</td>
+            </tr>
         {% endfor %}
-        </ul>
-            <li><a href="{% url 'comment_list' %}">click here to see all comments</a></li>
-            <li><a href="{% url 'post_detail' %}">click here to see post detail</a></li>
-            <li><a href="{% url 'comment' %}">click here to comment</a></li>
-
-          </ul>
-
-
-
+</table>
     </div>
 </div>
 
