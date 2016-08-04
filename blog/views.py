@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from blog.forms import CommentModelForm
+from blog.forms import CommentModelForm, PostModelForm
 from blog.models import Post, Comment
 
 
@@ -23,6 +23,19 @@ def mysum2(request, x):
       return HttpResponse(result)
 
 
+def post_new(request):
+    if request.method=='POST':
+        form=PostModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form =PostModelForm()
+    return render(request, 'blog/post_html.html', {'form':form})
+
+
+
+
 def comment_new(request):
     if request.method=='POST':
         form=CommentModelForm(request.POST)
@@ -32,6 +45,7 @@ def comment_new(request):
     else:
         form =CommentModelForm()
     return render(request, 'blog/form_html.html', {'form':form})
+
 
 def comment_edit(request, pk):
     comment = Comment.objects.get(pk=pk)

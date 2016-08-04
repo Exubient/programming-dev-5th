@@ -29,6 +29,7 @@ urlpatterns = [
       url(r'^comments/(?P<pk>[0-9]\d+)/edit/$', views.comment_edit),
 
       url(r'^comments/new/$', views.comment_new, name="comment"),
+      url(r'^posts/new/$', views.post_new, name="post"),
 
       url(r'^rank/$', pokemon_views.pokemon_rank, name='rank'),
 
