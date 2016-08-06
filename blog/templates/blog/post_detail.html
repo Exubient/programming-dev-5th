@@ -46,6 +46,7 @@ body {
         <p>CONTENT</p>
           <table>
           <tr>
+          <td>____PK____</td>
           <td>____title____</td>
           <td>____content____</td>
           <td>____lnglat____</td>
@@ -53,6 +54,7 @@ body {
           </tr>
         {% for post in post_list%}
             <tr>
+            <td>{{post.pk}}</td>
             <td>{{post.title}}</td>
             <td>{{post.content}}</td>
             <td>{{post.lnglat}}</td>

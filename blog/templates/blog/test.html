@@ -1,0 +1,22 @@
+
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+    <input type="" name="author">
+    <input type="" name="message">
+    <input type="submit" name="">
+    </table>
+
+    <input type="submit" />
+</form>
+
+<table>
+<tr>
+{% for comment in comments %}
+<td>{{comment.author}}</td>
+<td>{{comment.message}}</td>
+<tr>
+{% endfor %}
+</table>

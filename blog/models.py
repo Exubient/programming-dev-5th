@@ -23,6 +23,15 @@ class Comment(models.Model):
       def __str__(self):
             return self.message
 
+class Comment1(models.Model):
+      message= models.TextField()
+      author= models.CharField(max_length=20)
+
+      def __str__(self):
+            return self.message
+
+
+
 class Tag(models.Model):
       name = models.CharField(max_length=20)
 

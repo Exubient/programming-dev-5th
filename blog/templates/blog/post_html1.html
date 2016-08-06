@@ -6,6 +6,11 @@
 <title>P.rogramming Blog</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 <style>
+
+td{
+  border:solid black 1px;
+  text-align:center;
+}
 body {
     padding-top: 60px;
 }
@@ -37,17 +42,21 @@ body {
 
 <div class="container">
     <div class="jumbotron">
-        <h1>P.rogramming</h1>
-
-        <ul>
-            <li><a href="{% url 'comment_list' %}">click here to see all comments</a></li>
-            <li><a href="{% url 'post_detail' %}">click here to see post detail</a></li>
-            <li><a href="{% url 'post' %}">click here to post</a></li>
-            <li><a href="{% url 'comment' %}">click here to comment</a></li>
-            <li><a href="{% url 'test' %}">comments system</a></li>
-          </ul>
-
-
+        <h1>Post_Detail</h1>
+        <p>CONTENT</p>
+<body>
+     <h3>{{ post.title }}</h3>
+     <p>by {{ post.author }}</p>
+     {{ post.lnglat }}
+     {{ post.created_at }}
+     {% for tag in post.tag_set.all %}
+         {{ tag.name }}
+     {% endfor %}
+     <hr/>
+     {{ post.content|linebreaks }}
+     <hr/>
+     <a href="{% url "blog.views.post_list" %}">목록으로</a>
+ </body>
 
     </div>
 </div>

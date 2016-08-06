@@ -41,9 +41,15 @@ body {
         <p>CONTENT</p>
             <li>this are contents of list of comments!</li>
           <ul>
+
+          <table>
         {% for comment in comment_list %}
-            <li>{{comment}}</li>
+            <tr><td>글쓴이 {{comment.author}} 내용 {{comment.message}}</td><tr>
         {% endfor %}
+        <table>
+        {% if comments}
+          <li> {{comment}}</li>
+
         </ul>
             <li><a href="{% url 'post_detail' %}">click here to see post detail</a></li>
             <li><a href="{% url 'comment' %}">click here to comment on posts</a></li>

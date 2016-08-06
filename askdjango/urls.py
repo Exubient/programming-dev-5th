@@ -26,6 +26,8 @@ urlpatterns = [
       url(r'^post_list$', views.p_list, name = "post_list"),
       url(r'^comment_list$', views.comment_list, name = "comment_list"),
       url(r'^post_list/detail/$', views.postd_list, name = "post_detail"),
+      url(r'^test/$', views.comments, name = "test"),
+      url(r'^post_list/detail/(?P<pk>\d+)/$', views.post_detail, name = "post_d"),
       url(r'^comments/(?P<pk>[0-9]\d+)/edit/$', views.comment_edit),
 
       url(r'^comments/new/$', views.comment_new, name="comment"),
