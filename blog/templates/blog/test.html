@@ -1,22 +1,10 @@
 
-
-
-<form action="" method="POST">
+<form action="" method="POST"  enctype="multipart/form-data">
     {% csrf_token %}
+
     <table>
-    <input type="" name="author">
-    <input type="" name="message">
-    <input type="submit" name="">
+    {{form.as_table}}
     </table>
 
     <input type="submit" />
 </form>
-
-<table>
-<tr>
-{% for comment in comments %}
-<td>{{comment.author}}</td>
-<td>{{comment.message}}</td>
-<tr>
-{% endfor %}
-</table>

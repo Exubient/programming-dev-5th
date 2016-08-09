@@ -61,6 +61,28 @@ body {
             <td>{{post.created_at}}</td>
             </tr>
         {% endfor %}
+
+
+
+     <ul>
+      {% for post in post_list %}
+          <li>
+             {{ post.title }}
+         </a>
+         by {{ post.author }}
+         <br>
+           {% if post.photo %}
+               <a href="{% url 'blog.views.post_detail' pk=post.pk %}">click to see detail<img src="{{ post.photo.url }}" style="width: 75px; height: 75px;" /></a>
+           {% endif %}
+           <br>
+               {{ post.title }}
+           </a>
+             by {{ post.author }}
+          </li>
+      {% endfor %}
+      </ul>
+
+
 </table>
     </div>
 </div>

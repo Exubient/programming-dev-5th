@@ -44,6 +44,7 @@ body {
     <div class="jumbotron">
         <h1>Post_Detail</h1>
         <p>CONTENT</p>
+
 <body>
      <h3>{{ post.title }}</h3>
      <p>by {{ post.author }}</p>
@@ -55,6 +56,11 @@ body {
      <hr/>
      {{ post.content|linebreaks }}
      <hr/>
+
+
+
+
+
      <a href="{% url "blog.views.post_list" %}">목록으로</a>
  </body>
 

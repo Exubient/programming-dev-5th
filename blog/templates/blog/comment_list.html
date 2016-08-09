@@ -47,8 +47,6 @@ body {
             <tr><td>글쓴이 {{comment.author}} 내용 {{comment.message}}</td><tr>
         {% endfor %}
         <table>
-        {% if comments}
-          <li> {{comment}}</li>
 
         </ul>
             <li><a href="{% url 'post_detail' %}">click here to see post detail</a></li>

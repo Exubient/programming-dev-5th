@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from blog.forms import CommentModelForm, PostModelForm, CommentForm
+from blog.forms import CommentModelForm, PostModelForm, CommentForm, CommentForm1
 from blog.models import Post, Comment, Comment1
 from django.http import Http404
 
@@ -21,8 +21,6 @@ def post_detail(request, pk):
 # ==as post = get_object_or_404(Post, pk=pk)
 
 
-
-
 # Create your views here.
 def mysum(request, x, y=0, z=0):
       return HttpResponse(int(x) + int(y) + int(z))
@@ -34,7 +32,7 @@ def mysum2(request, x):
 
 def post_new(request):
     if request.method=='POST':
-        form=PostModelForm(request.POST)
+        form=PostModelForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('/')
@@ -48,13 +46,25 @@ def post_new(request):
 def comment_new(request):
 
     if request.method=='POST':
-        form=CommentModelForm(request.POST)
+        form=CommentModelForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('/')
     else:
         form =CommentModelForm()
     return render(request, 'blog/form_html.html', {'form':form})
+
+def comment_new1(request):
+    if request.method=='POST':
+        form=CommentForm1(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form =CommentForm1()
+    return render(request, 'blog/test.html', {'form':form})
+
+
 
 
 
@@ -77,7 +87,7 @@ def comments(request):
 def comment_edit(request, pk):
     comment = Comment.objects.get(pk=pk)
     if request.method == 'POST':
-        fvorm = CommentModelForm(request.POST, request.FILES, instance=comment)
+        form = CommentModelForm(request.POST, request.FILES, instance=comment)
         if form.is_valid():
             form.save()
             return redirect('/')

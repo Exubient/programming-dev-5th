@@ -14,10 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from blog import views
 from pokemon import views as pokemon_views
 from blog.models  import Comment
+
 
 
 urlpatterns = [
@@ -31,24 +34,19 @@ urlpatterns = [
       url(r'^comments/(?P<pk>[0-9]\d+)/edit/$', views.comment_edit),
 
       url(r'^comments/new/$', views.comment_new, name="comment"),
+      url(r'^comments1/new/$', views.comment_new1, name="test1"),
       url(r'^posts/new/$', views.post_new, name="post"),
 
       url(r'^rank/$', pokemon_views.pokemon_rank, name='rank'),
 
       url(r'^user/$', pokemon_views.user_list, name='user'),
-      #url(r'^user/(?P<pk>\d+)/$', pokemon_views.user_list_pk, name='trainers_pk'),
 
       url(r'^location$', pokemon_views.location_list, name='location'),
-      #url(r'^locations/(?P<pk>\d+)/$', pokemon_views.location_list_pk, name='locations_pk'),
 
       url(r'^pokemon/$', pokemon_views.pokemon_list, name='pokemon'),
-      #url(r'^pokemon/(?P<pk>\d+)/$', pokemon_views.pokemon_list_pk, name='pokemon_pk'),
 
       url(r'^capture$', pokemon_views.capture_list, name='capture'),
-      #url(r'^capture/(?P<pk>\d+)/$', pokemon_views.capture_list_pk, name='captures_pk'),
 
-      #url(r'^sum/(?P<x>\d+)/(?P<y>\d+)/(?P<z>\d+)/$', views.mysum),
-      #url(r'^sum/(?P<x>\d+)/(?P<y>\d+)/$', views.mysum),
-      #url(r'^sum/(?P<x>\d+)/$', views.mysum),
-      #url(r'^sum2/(?P<x>[\d/]+)/$', views.mysum2),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
