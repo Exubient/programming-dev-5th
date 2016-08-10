@@ -41,8 +41,6 @@ def post_new(request):
     return render(request, 'blog/post_html.html', {'form':form})
 
 
-
-
 def comment_new(request):
 
     if request.method=='POST':
@@ -61,8 +59,25 @@ def comment_new1(request):
             form.save()
             return redirect('/')
     else:
-        form =CommentForm1()
+        form = CommentForm1()
     return render(request, 'blog/test.html', {'form':form})
+
+def comment_edit(request, post_pk, pk):
+    post = get_object_or_404(Post, pk=post_pk)
+    comment = Comment.objects.get(pk=pk)
+
+    if request.method == 'POST':
+        form = CommentForm2(request.POST, request.FILES, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, '댓글을 수정했습니다.')
+            return redirect(post)
+    else:
+        form = CommentForm2(instance=comment)
+
+    return render(request, 'blog/comment_form.html', {
+        'form': form,
+    })
 
 
 

@@ -57,11 +57,9 @@ body {
      {{ post.content|linebreaks }}
      <hr/>
 
+<a href="{% url "blog: comment_edit" post.pk comment.pk %}">수정</a>
 
-
-
-
-     <a href="{% url "blog.views.post_list" %}">목록으로</a>
+     <a href="{% url 'post_list' %}">목록으로</a>
  </body>
 
     </div>

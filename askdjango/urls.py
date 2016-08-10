@@ -20,6 +20,7 @@ from django.contrib import admin
 from blog import views
 from pokemon import views as pokemon_views
 from blog.models  import Comment
+from django.conf.urls import include
 
 
 
@@ -46,7 +47,7 @@ urlpatterns = [
       url(r'^pokemon/$', pokemon_views.pokemon_list, name='pokemon'),
 
       url(r'^capture$', pokemon_views.capture_list, name='capture'),
-
+      url(r'^accounts/', include('login.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

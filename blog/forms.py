@@ -13,17 +13,25 @@ class CommentModelForm(forms.ModelForm):
         fields=['message', 'author', 'post', 'jjal']
 
 class CommentForm1(forms.Form):
-    model=Comment1
     post = forms.ModelChoiceField(queryset=Post.objects.all())
     author = forms.CharField()
-    message = forms.CharField()
+    message = forms.CharField(widget=forms.Textarea)
 
+    def __init__(self, *args, **kwargs):
+        self.instance = kwargs.pop('instance', None)
+        super(CommentForm1, self).__init__(*args, **kwargs)
+        if self.instance:
+            self.fields['message'].initial = self.instance.message
+            self.fields['author'].initial = self.instance.author
+        else:
+            self.instance = Comment1()
 
     def save(self, commit=True):
-        comment = Comment1(post=self.cleaned_data['post'], author= self.cleaned_data['author'], message= self.cleaned_data['message'])
+        self.instance.message = self.cleaned_data['message']
+        self.instance.author = self.cleaned_data['author']
         if commit:
-            comment.save()
-        return comment
+            self.instance.save()
+        return self.instance
 
 
 
@@ -37,3 +45,22 @@ class CommentForm(forms.Form):
             comment.save()
         return comment
 
+class CommentForm2(forms.Form):
+    message = forms.CharField(widget=forms.Textarea)
+    author = forms.CharField()
+
+    def __init__(self, *args, **kwargs):
+        self.instance = kwargs.pop('instance', None)
+        super(CommentForm, self).__init__(*args, **kwargs)
+        if self.instance:
+            self.fields['message'].initial = self.instance.message
+            self.fields['author'].initial = self.instance.author
+        else:
+            self.instance = Comment()
+
+    def save(self, commit=True):
+        self.instance.message = self.cleaned_data['message']
+        self.instance.author = self.cleaned_data['author']
+        if commit:
+            self.instance.save()
+        return self.instance

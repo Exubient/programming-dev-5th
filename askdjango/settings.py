@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'webtoon',
     'debug_toolbar',
     'pokemon',
+    'login',
 ]
 
 MIDDLEWARE_CLASSES = [
