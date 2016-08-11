@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from blog.forms import CommentModelForm, PostModelForm, CommentForm, CommentForm1
 from blog.models import Post, Comment, Comment1
 from django.http import Http404
-
+from django.contrib.auth.decorators import login_required
 
 def post_list(request):
       return render(request, 'blog/post_list1.html',{'post_list': Post.objects.all()})

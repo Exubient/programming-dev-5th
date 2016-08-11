@@ -16,7 +16,13 @@
 
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-          <a class="navbar-brand" href="{% url 'pokemon' %}">Start of Pokemon Adventure! Click Me</a>
+      <h2>
+          {% if user.is_authenticated %}
+              <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+          {% else %}
+              <p>Welcome, new user. Please log in.</p>
+          {% endif %}
+      </h2>
     </nav>
 
     <div class="jumbotron">
@@ -34,6 +40,8 @@
             <li>오버워치</li>
             <li> <a href="{% url 'post_list' %}">Post_list/Comment_list</a></li>
             <li><a href="{% url 'pokemon' %}">Start Pokemon Adventure!</a></li>
+            <li><a href="{% url 'signup' %}">Sign Up in my blog</a></li>
+            <li><a href="{% url 'login' %}">LOGIN</a></li>
          </div>
          </ul>
         <p><a class="btn btn-primary btn-lg" href="https://www.facebook.com/hyunjoong.kim.18847" role="button"target="_blank">Go to Facebook&raquo;</a></p>

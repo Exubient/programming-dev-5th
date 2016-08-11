@@ -1,11 +1,11 @@
 from django.conf.urls import url
-from django.contrib.auth.views import login
 from . import views
+from blog import views as blog_views
 
 
 urlpatterns = [
         url(r'^signup/$', views.signup, name='signup'),
-        url(r'^login/$', login, name='login', kwargs={
-        'template_name': 'login/login.html',
-       }),
+        url(r'^login/$', views.my_view, name='login'),
+        url(r'^profile/$',  blog_views.p_list),
+        url(r'^logout/$', views.logout, name='home'),
 ]
